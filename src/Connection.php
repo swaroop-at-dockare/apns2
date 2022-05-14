@@ -54,7 +54,8 @@ class Connection extends BaseDataObject
         if (!$cert) {
             throw new \Exception("cert path invalid: {$this->certPath}");
         }
-        curl_setopt_array($this->ch, [
+
+        $curl_options = [
             CURLOPT_URL => "$host/3/device/$token",
             CURLOPT_PORT => 443,
             CURLOPT_HTTPHEADER => $options->getHeadersForHttp2API(),
@@ -65,13 +66,13 @@ class Connection extends BaseDataObject
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_SSLCERT => $cert,
             CURLOPT_HEADER => 1
-        ]);
+        ];
 
         if ($options->certKeyPassphrase) {
-            curl_setopt_array($this->ch, [
-                CURLOPT_SSLKEYPASSWD, $options->certKeyPassphrase
-            ]);
+                $curl_options[CURLOPT_SSLKEYPASSWD] = $options->certKeyPassphrase;
         }
+
+        curl_setopt_array($this->ch, $curl_options);
 
         $result = curl_exec($this->ch);
         if ($result === false) {
