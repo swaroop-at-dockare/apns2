@@ -20,6 +20,11 @@ class MessageAPSBody extends BaseDataObject
      */
     public $contentAvailable;
 
+    /**
+     * @var array|null
+     */
+    public $data;
+
 
     public function __construct($data = [])
     {

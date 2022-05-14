@@ -67,6 +67,12 @@ class Connection extends BaseDataObject
             CURLOPT_HEADER => 1
         ]);
 
+        if ($options->certKeyPassphrase) {
+            curl_setopt_array($this->ch, [
+                CURLOPT_SSLKEYPASSWD, $options->certKeyPassphrase
+            ]);
+        }
+
         $result = curl_exec($this->ch);
         if ($result === false) {
             throw new \Exception('Curl failed with error: ' . curl_error($this->ch));

@@ -31,6 +31,11 @@ class Options extends BaseDataObject
     public $curlTimeout = 30;
 
     /**
+     * @var string|null
+     */
+    public $certKeyPassphrase;
+
+    /**
      * @var string
      */
     public $userAgent = 'apns2(php)';
