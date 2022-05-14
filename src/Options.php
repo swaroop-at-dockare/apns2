@@ -1,5 +1,5 @@
 <?php
-namespace Dashi\Apns2;
+namespace Swaroop\Apns2;
 
 class Options extends BaseDataObject
 {

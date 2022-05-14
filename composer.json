@@ -25,7 +25,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Dashi\\Apns2\\": "src/"
+      "Swaroop\\Apns2\\": "src/"
     }
   },
   "config": {

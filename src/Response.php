@@ -1,5 +1,5 @@
 <?php
-namespace Dashi\Apns2;
+namespace Swaroop\Apns2;
 
 /**
  * Response for sending message to specific device via APNs
