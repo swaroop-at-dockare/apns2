@@ -23,6 +23,11 @@ class Options extends BaseDataObject
     /**
      * @var string|null
      */
+    public $apnsPushType;
+
+    /**
+     * @var string|null
+     */
     public $apnsCollapseId;
 
     /**
